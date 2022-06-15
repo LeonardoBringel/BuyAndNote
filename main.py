@@ -1,5 +1,7 @@
 from openpyxl import load_workbook, Workbook
 
+from transaction_utils import *
+
 
 def open_workbook():
     workbook = load_workbook('carteira.xlsx')
@@ -18,3 +20,6 @@ try:
 except FileNotFoundError:
     create_workbook()
     worksheet = open_workbook()
+
+for transaction in list_transactions(worksheet):
+    print(transaction)
