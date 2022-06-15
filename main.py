@@ -1,4 +1,4 @@
-from openpyxl import load_workbook
+from openpyxl import load_workbook, Workbook
 
 
 def open_workbook():
@@ -6,7 +6,14 @@ def open_workbook():
     return workbook.active
 
 
+def create_workbook():
+    workbook = Workbook()
+    workbook.active.title = 'Transações'
+    workbook.save('carteira.xlsx')
+
+
 try:
     worksheet = open_workbook()
 except FileNotFoundError:
-    print('Workbook not found')
+    create_workbook()
+    worksheet = open_workbook()
