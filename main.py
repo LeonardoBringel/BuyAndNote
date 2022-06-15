@@ -1,3 +1,12 @@
 from openpyxl import load_workbook
 
-print('hello world!')
+
+def open_workbook():
+    workbook = load_workbook('carteira.xlsx')
+    return workbook.active
+
+
+try:
+    worksheet = open_workbook()
+except FileNotFoundError:
+    print('Workbook not found')
