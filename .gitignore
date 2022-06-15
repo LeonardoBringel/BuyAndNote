@@ -1,0 +1,5 @@
+# User sensitive data
+carteira.xlsx
+
+# PyCharm
+.idea/
