@@ -3,3 +3,4 @@ carteira.xlsx
 
 # PyCharm
 .idea/
+__pycache__/
