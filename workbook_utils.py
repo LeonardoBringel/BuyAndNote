@@ -3,7 +3,7 @@ from openpyxl import load_workbook, Workbook
 
 def open_workbook():
     workbook = load_workbook('carteira.xlsx')
-    return workbook.active
+    return workbook, workbook.active
 
 
 def create_workbook():
