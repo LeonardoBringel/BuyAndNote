@@ -11,3 +11,7 @@ def create_workbook():
     workbook.active.title = 'Transações'
     workbook.active.append(['Data', 'Categoria', 'Ordem', 'Ticker', 'Quantidade', 'Preço (R$)'])
     workbook.save('carteira.xlsx')
+
+
+def save_workbook(workbook):
+    workbook.save('carteira.xlsx')
