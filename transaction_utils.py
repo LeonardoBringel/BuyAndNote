@@ -12,3 +12,17 @@ def list_transactions(worksheet):
         transaction = Transaction(date, category, order, ticker, quantity, price)
         transactions.append(transaction)
     return transactions
+
+
+def add_transaction(worksheet):
+    date = input('Data: ')
+    category = input('Categoria: ').lower()
+    order = input('Ordem: ').lower()
+    ticker = input('Ticker: ').upper()
+    quantity = int(input('Quantidade: '))
+    price = float(input('Preço R$: '))
+
+    temp_date = datetime.strptime(str(date), '%Y-%m-%d')
+    date = temp_date.strftime('%Y-%m-%d %H:%M:%S')
+
+    worksheet.append([date, category, order, ticker, quantity, price])
