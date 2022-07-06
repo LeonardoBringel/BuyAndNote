@@ -1,11 +1,6 @@
-from datetime import datetime
-
-
 class Transaction:
     def __init__(self, date, category, order, ticker, quantity, price):
-        temp_date = datetime.strptime(str(date), '%Y-%m-%d %H:%M:%S')
-
-        self.date = temp_date.strftime('%d/%m/%y')
+        self.date = date
         self.category = category
         self.order = order
         self.ticker = ticker

@@ -10,6 +10,10 @@ def list_transactions(worksheet):
             data = worksheet.cell(row+1, col+1).value
             row_data.append(data)
         date, category, order, ticker, quantity, price = row_data
+
+        temp_date = datetime.strptime(str(date), '%Y-%m-%d %H:%M:%S')
+        date = temp_date.strftime('%d/%m/%y')
+
         transaction = Transaction(date, category, order, ticker, quantity, price)
         transactions.append(transaction)
     return transactions
