@@ -1,4 +1,5 @@
 from transaction import *
+from datetime import datetime
 
 
 def list_transactions(worksheet):
@@ -22,7 +23,7 @@ def add_transaction(worksheet):
     quantity = int(input('Quantidade: '))
     price = float(input('Preço R$: '))
 
-    temp_date = datetime.strptime(str(date), '%Y-%m-%d')
+    temp_date = datetime.strptime(str(date), '%d/%m/%Y')
     date = temp_date.strftime('%Y-%m-%d %H:%M:%S')
 
     worksheet.append([date, category, order, ticker, quantity, price])
