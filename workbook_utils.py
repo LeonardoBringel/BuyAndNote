@@ -9,7 +9,7 @@ def open_workbook():
 def create_workbook():
     workbook = Workbook()
     workbook.active.title = 'Transações'
-    workbook.active.append(['Data', 'Categoria', 'Ordem', 'Ticker', 'Quantidade', 'Preço (R$)'])
+    workbook.active.append(['Data', 'Categoria', 'Ordem', 'Ticker', 'Quantidade', 'Preço (R$)', 'Preço Total (R$)'])
     workbook.save('carteira.xlsx')
 
 
