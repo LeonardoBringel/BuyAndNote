@@ -1,3 +1,4 @@
+from asset import *
 from transaction_utils import *
 from workbook_utils import *
 
@@ -15,9 +16,21 @@ while True:
             add_transaction(worksheet)
             save_workbook(workbook)
         case '2':
+            assets = {}
             print('\n\n-- Transações --')
             for transaction in list_transactions(worksheet):
                 print(transaction)
+                if transaction.ticker not in assets:
+                    assets[transaction.ticker] = Asset(transaction)
+                else:
+                    assets.get(transaction.ticker).add_transaction(transaction)
+
+            assets = list(assets.values())
+            assets.sort(key=lambda value: (value.category, value.ticker))
+
+            print('\n\n-- Posição --')
+            for asset in assets:
+                print(asset)
         case '0':
             exit()
     print('\n\n\n')
