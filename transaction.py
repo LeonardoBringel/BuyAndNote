@@ -8,6 +8,9 @@ class Transaction:
         self.price = round(float(price), 2)
         self.total_price = round(float(total_price), 2)
 
+    def get_array(self):
+        return [self.date, self.category, self.order, self.ticker, self.quantity, self.price, self.total_price]
+
     def __str__(self):
         return f'{self.date}\t{self.category}\t{self.order}\t' + \
             f'{self.ticker}\t{self.quantity}\t{self.price}\t{self.total_price}'
