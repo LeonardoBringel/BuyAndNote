@@ -1,8 +1,8 @@
 from openpyxl import load_workbook, Workbook
 
 
-def open_workbook():
-    workbook = load_workbook('carteira.xlsx')
+def open_workbook(file_name):
+    workbook = load_workbook(file_name)
     return workbook, workbook.active
 
 

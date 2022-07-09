@@ -3,10 +3,10 @@ from transaction_utils import *
 from workbook_utils import *
 
 try:
-    workbook, worksheet = open_workbook()
+    workbook, worksheet = open_workbook('carteira.xlsx')
 except FileNotFoundError:
     create_workbook()
-    workbook, worksheet = open_workbook()
+    workbook, worksheet = open_workbook('carteira.xlsx')
 
 while True:
     print('------------- MENU -------------')
