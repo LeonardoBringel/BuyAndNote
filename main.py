@@ -13,7 +13,17 @@ while True:
     answer = input('[1] - Inserir\t\t[2] - Visualizar\n[0] - Sair\tOpção: ')
     match answer:
         case '1':
-            add_transaction(worksheet)
+            date = input('Data: ')
+            category = input('Categoria: ').lower()
+            order = input('Ordem: ').lower()
+            ticker = input('Ticker: ').upper()
+            quantity = int(input('Quantidade: '))
+            price = float(input('Preço R$: '))
+            total_price = round(quantity * price, 2)
+
+            transaction = Transaction(date, category, order, ticker, quantity, price, total_price)
+
+            add_transaction(worksheet, transaction.get_array())
             save_workbook(workbook)
         case '2':
             assets = {}
