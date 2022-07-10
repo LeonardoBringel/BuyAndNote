@@ -2,14 +2,18 @@ from transaction import *
 from datetime import datetime
 
 
+def list_worksheet_rows(worksheet):
+    rows = []
+    for row in list(worksheet.rows)[1:]:
+        rows.append([cell.value for cell in row])
+    return rows
+
+
 def list_transactions(worksheet):
     transactions = []
-    for row in range(1, worksheet.max_row):
-        row_data = []
-        for col in range(0, worksheet.max_column):
-            data = worksheet.cell(row+1, col+1).value
-            row_data.append(data)
-        date, category, order, ticker, quantity, price, total_price = row_data
+
+    for row in list_worksheet_rows(worksheet):
+        date, category, order, ticker, quantity, price, total_price = row
 
         temp_date = datetime.strptime(str(date), '%Y-%m-%d %H:%M:%S')
         date = temp_date.strftime('%d/%m/%y')
