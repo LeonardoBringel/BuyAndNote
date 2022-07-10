@@ -30,6 +30,9 @@ def extract_transactions(worksheet):
     for row in list_rows(worksheet):
         date, order, _, _, _, ticker, quantity, price, total_price = row
 
+        if ticker[-1] == 'F':
+            ticker = ticker[:-1]
+
         transaction = Transaction(date, 'outros', order, ticker, quantity, price, total_price)
         transactions.append(transaction)
 
