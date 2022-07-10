@@ -10,7 +10,7 @@ except FileNotFoundError:
 
 while True:
     print('------------- MENU -------------')
-    answer = input('[1] - Inserir\t\t[2] - Visualizar\n[0] - Sair\tOpção: ')
+    answer = input('[1] - Inserir\t\t[2] - Visualizar\n[3] - Importar\t\t[0] - Sair\nOpção: ')
     match answer:
         case '1':
             date = input('Data: ')
@@ -25,6 +25,7 @@ while True:
 
             add_transaction(worksheet, transaction.get_array())
             save_workbook(workbook)
+
         case '2':
             assets = {}
             print('\n\n-- Transações --')
@@ -41,6 +42,14 @@ while True:
             print('\n\n-- Posição --')
             for asset in assets:
                 print(asset)
+
+        case '3':
+            _, temp_worksheet = open_workbook('negociacao.xlsx')
+
+            for transaction in extract_transactions(temp_worksheet):
+                add_transaction(worksheet, transaction.get_array())
+            save_workbook(workbook)
+
         case '0':
             exit()
     print('\n\n\n')

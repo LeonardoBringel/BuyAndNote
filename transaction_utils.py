@@ -22,3 +22,16 @@ def add_transaction(worksheet, data):
     data[0] = temp_date.strftime('%Y-%m-%d %H:%M:%S')
 
     worksheet.append(data)
+
+
+def extract_transactions(worksheet):
+    transactions = []
+
+    for row in list_rows(worksheet):
+        date, order, _, _, _, ticker, quantity, price, total_price = row
+
+        transaction = Transaction(date, 'outros', order, ticker, quantity, price, total_price)
+        transactions.append(transaction)
+
+    transactions.reverse()
+    return transactions
