@@ -1,5 +1,7 @@
 # User sensitive data
 carteira.xlsx
+negociacao.xlsx
+~$*
 
 # PyCharm
 .idea/
