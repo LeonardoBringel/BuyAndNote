@@ -15,3 +15,10 @@ def create_workbook():
 
 def save_workbook(workbook):
     workbook.save('carteira.xlsx')
+
+
+def list_rows(worksheet):
+    rows = []
+    for row in list(worksheet.rows)[1:]:
+        rows.append([cell.value for cell in row])
+    return rows
