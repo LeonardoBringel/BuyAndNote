@@ -5,7 +5,7 @@ class Asset:
         self.quantity = transaction.quantity
         self.total_price = transaction.total_price
 
-    def add_transaction(self, transaction):
+    def update(self, transaction):
         self.quantity += transaction.quantity
         self.total_price = round(self.total_price + transaction.total_price, 2)
 

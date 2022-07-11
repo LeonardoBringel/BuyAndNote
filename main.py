@@ -34,7 +34,7 @@ while True:
                 if transaction.ticker not in assets:
                     assets[transaction.ticker] = Asset(transaction)
                 else:
-                    assets.get(transaction.ticker).add_transaction(transaction)
+                    assets.get(transaction.ticker).update(transaction)
 
             assets = list(assets.values())
             assets.sort(key=lambda value: (value.category, value.ticker))
